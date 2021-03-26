@@ -1,16 +1,26 @@
+import checkForURL from './URLChecker'
+
 function handleSubmit(event) {
     event.preventDefault()
+    console.log("::: Form Submitted :::");
+    
+    let formText = document.getElementById('basic-url').value;
+    console.log(checkForURL(formText));
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+    if(!checkForURL(formText)){
+        alert("Please enter valid URL!");
+        
+    }else{
+        fetch('http://localhost:8081/')
+        .then(res => res.json())
+        .then(function(res) {
+            document.getElementById('results').innerHTML = res.message
+        });
+    }
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+   
+
+    
 }
 
 export { handleSubmit }
