@@ -7,6 +7,7 @@ import "./styles/_form.scss";
 import "./styles/_footer.scss";
 import 'bootstrap';
 
+
 document.addEventListener('DOMContentLoaded', init, true);
 
 function init(event){

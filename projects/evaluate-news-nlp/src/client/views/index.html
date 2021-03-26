@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Sentiment Analyzer</title>
+  <title>Sentiment Extractor</title>
 </head>
 
 
@@ -17,16 +17,17 @@
       <form id="form" onsubmit="return handleSubmit();">
 
         <div class="input-group">
-          <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-          <input type="text" class="form-control" id="basic-url">
-          <button id="submit" type="submit" class="btn btn-primary"> Submit</button>
-        </div>
+          <span class="input-group-text ml-2" id="basic-addon3">https://example.com/users/</span>
+          <input type="text" class="form-control ml-2" id="basic-url">
 
+          <button id="submit" type="submit" class="btn btn-primary ml-2"> Submit</button>
+
+        </div>
       </form>
 
 
 
-      <p class="card-text-center">Form Results:</p>
+      <p class="card-text-center mt-2">Form Results:</p>
       <ul class="list-group">
         <li class="list-group-item">
           <div>Text: <span id="text"></span></div>

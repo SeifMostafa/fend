@@ -1,7 +1,7 @@
 form {
     border: 1px solid #545454;
     border-radius: 3px;
-    padding: 40px;
+    padding: 50px;
 }
 
 input {
@@ -12,9 +12,18 @@ input {
 }
 
 .list-group-item{
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     line-height: 16px;
-    margin: 10px 0; 
+    margin: 6px; 
+    font-weight: 700;
+}
+
+.btn-primary{
+    background-color: blueviolet;
+    color:whitesmoke;
+    padding: 16px;
+    border-radius: 12%;
+    font-family: 'Times New Roman', Times, serif;
     font-weight: 700;
 }

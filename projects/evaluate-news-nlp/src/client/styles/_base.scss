@@ -15,4 +15,10 @@ section {
 p{
     color:blueviolet;
     font-weight: 700;
+    margin: 10px; 
 }
+span{
+    color:blueviolet;
+}
+
+@import '~bootstrap/scss/bootstrap'
