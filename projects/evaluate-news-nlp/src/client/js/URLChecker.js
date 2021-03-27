@@ -2,7 +2,7 @@
 /*
 / to validate if URL is aligned with standard(return true) or not(return false)
 */
-function checkForURL(inputText) {
+function isURLValid(inputText) {
     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -12,4 +12,4 @@ function checkForURL(inputText) {
   return !!pattern.test(inputText);
 }
 // to be imported by webpack and handleSubmit without {}
-export default checkForURL
+export default isURLValid

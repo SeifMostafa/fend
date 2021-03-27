@@ -15,11 +15,11 @@
 
       <p class="card-text-center">Enter a URL of an article / a blog to discover its sentiment.</p>
 
-      <form id="form" onsubmit="return handleSubmit();">
+      <form id="form" onsubmit="return Client.handleFormSubmission();">
 
         <div class="input-group">
           <span class="input-group-text ml-2" id="basic-addon3">https://example.com/users/</span>
-          <input type="text" class="form-control ml-2" id="basic-url">
+          <input type="text" class="form-control ml-2" id="url_to_analyze">
 
           <button id="submit" type="submit" class="btn btn-primary ml-2"> Submit</button>
 
