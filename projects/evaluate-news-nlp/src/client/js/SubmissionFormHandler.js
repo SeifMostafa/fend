@@ -1,33 +1,10 @@
 import isURLValid from './URLChecker'
 
-/// to post url to backend on same origin (localhost) & different port as json obj.
-/// async call to backend waiting trigger that backend replied to back to handleFormSubmission function
-
-const sendToBackend = async (urlParam = '', responseFromBackend = {}) => {
-    // format response..
-    const res = await fetch(urlParam, {
-        method: 'POST',
-        credentials: 'same-origin',
-        mode: 'cors', // to solve origin cors problem
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(responseFromBackend)
-    })
-    try {
-        /// waiting response from backend..
-        return await res.json()
-    } catch (exception) {
-        /// for debugging
-        console.log(exception)
-    }
-}
 
 /*
 / get input URL from user,
 / process validation function on URL,
 / notify user for invalid URLs,
-/ use post function above to send request to backend to fetch data from meancloud API
 / update form result table with fetched data once available.
 */
 export const handleFormSubmission = async (event) => {
@@ -47,34 +24,47 @@ export const handleFormSubmission = async (event) => {
         alert("Please enter valid URL!");
 
     } else {
+
         // working when server is up & running on port 8081 on localhost.
         // passing urlText param which contains the valid URL that passed by user to url-analysis route.
-        await sendToBackend('http://localhost:8081/url-analysis', {
-            urlText
-        }).then(data => {
-            //  console.log(data);
+        /// to post url to backend on same origin (localhost) & different port as json obj.
+        /// async call to backend waiting trigger that backend replied to back to handleFormSubmission function
+        await fetch('http://localhost:8081/url-analysis', {
+            method: 'POST',
+            credentials: 'same-origin',
+            mode: 'cors', // to solve origin cors problem
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ urlText: urlText })
+        }).then(res => {
+            return res.json()
+        }).then(function (response) {
+
+            //console.log(response)
+
             /// updating form result with fetched result from meancloud API.. 
-            document.getElementById('score_tag').textContent = data.score_tag;
+            document.getElementById('score_tag').textContent = response.score_tag;
             /// update agreement span
-            document.getElementById('agreement').textContent = data.agreement;
+            document.getElementById('agreement').textContent = response.agreement;
             /// update subjectivity span
-            document.getElementById('subjectivity').textContent = data.subjectivity;
+            document.getElementById('subjectivity').textContent = response.subjectivity;
             /// update irony span
-            document.getElementById('irony').textContent = data.irony;
+            document.getElementById('irony').textContent = response.irony;
             /// update confidence span
-            document.getElementById('confidence').textContent = data.confidence;
+            document.getElementById('confidence').textContent = response.confidence;
 
             /// access sentence_list to get text which is found at param[0] always.
             /// could be nested texts with analysis but let's fetch first only.
-            document.getElementById('text').textContent = data.sentence_list[0].text;
+            document.getElementById('text').textContent = response.sentence_list[0].text;
 
             /// updating model used.. special case to be upper case
-            var modelVar = data.model;
+            var modelVar = response.model;
             var upperCaseModel = modelVar.toUpperCase();
             document.getElementById('model').textContent = upperCaseModel;
 
             /// updating remaing checks with used registered key..
-            document.getElementById('remaining_credits').textContent = data.status.remaining_credits;
+            document.getElementById('remaining_credits').textContent = response.status.remaining_credits;
         });
     }
 }
