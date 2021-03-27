@@ -1,6 +1,6 @@
 /// reference https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
 /*
-// to validate if URL is aligned with standard(return true) or not(return false)
+/ to validate if URL is aligned with standard(return true) or not(return false)
 */
 function checkForURL(inputText) {
     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol

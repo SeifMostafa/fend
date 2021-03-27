@@ -1,3 +1,4 @@
+$base-color: blueviolet;
 body {
     display: flex;
     flex-direction: column;
@@ -13,12 +14,21 @@ section {
     margin: 50px auto;
 }
 p{
-    color:blueviolet;
+    color:$base-color;
     font-weight: 700;
     margin: 10px; 
 }
 span{
-    color:blueviolet;
+    color:$base-color;
 }
+
+.btn-primary{
+    background-color: $base-color;
+    padding: 16px;
+    border-radius: 12%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+
 
 @import '~bootstrap/scss/bootstrap'
