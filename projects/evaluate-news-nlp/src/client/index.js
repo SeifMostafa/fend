@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 /// import function from js folder..
 import {handleSubmit} from './js/formHandler';
 /// import styles to be used for views.. and packed..
@@ -6,6 +8,8 @@ import "./styles/_header.scss";
 import "./styles/_form.scss";
 import "./styles/_footer.scss";
 import 'bootstrap';
+
+const regeneratorRuntime = require('regenerator-runtime');
 
 // to create eventlistener on button to call handleSubmit function once doc. is loaded.
 document.addEventListener('DOMContentLoaded', initListener, true);
