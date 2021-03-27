@@ -1,9 +1,9 @@
 import 'babel-polyfill'
-import {handleSubmit} from '../js/formHandler';
+import {handleFormSubmission} from '../js/SubmissionFormHandler';
 
-describe('check if handleSubmit is defined(passed) or not(failed)', () => {
-    test('Testing the handleSubmit function defined or not', () => {
-        /// passed if handleSubmit is defined
-        expect(handleSubmit).toBeDefined();
+describe('check if handleFormSubmission is defined(passed) or not(failed)', () => {
+    test('Testing the handleFormSubmission function defined or not', () => {
+        /// passed if handleFormSubmission is defined
+        expect(handleFormSubmission).toBeDefined();
     })
 })
