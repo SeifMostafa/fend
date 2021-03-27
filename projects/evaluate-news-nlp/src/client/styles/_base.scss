@@ -11,12 +11,12 @@ main {
 
 section {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 40px auto;
 }
 p{
     color:$base-color;
     font-weight: 700;
-    margin: 10px; 
+    margin: 7px; 
 }
 span{
     color:$base-color;
@@ -24,7 +24,7 @@ span{
 
 .btn-primary{
     background-color: $base-color;
-    padding: 16px;
+    padding: 12px;
     border-radius: 12%;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 700;

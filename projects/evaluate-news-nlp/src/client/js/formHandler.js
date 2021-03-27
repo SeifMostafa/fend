@@ -60,6 +60,14 @@ export const handleSubmit = async (event) => {
             document.getElementById('confidence').textContent = data.confidence;
             /// access sentence_list to get text which is found at param[0] always.
             document.getElementById('text').textContent = data.sentence_list[0].text;
+
+            /// updating model used.. special case to be upper case
+            var modelVar = data.model;
+            var upperCaseModel = modelVar.toUpperCase();
+            document.getElementById('model').textContent = upperCaseModel;
+
+            /// updating remaing checks with used registered key..
+            document.getElementById('remaining_credits').textContent = data.status.remaining_credits;
         }
         );
     }
